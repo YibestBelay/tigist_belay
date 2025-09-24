@@ -28,13 +28,13 @@ const NavBar = () => {
                <ThemeToggle />
                 </div>
                 <div className='md:hidden '>
-                    {!open ? ( <Menu onClick={() => setOpen(true)} className='cursor-pointer'/> ) : (
+                    {!open ? ( <Menu onClick={() => setOpen(!open)} className='cursor-pointer'/> ) : (
                         <div className=' w-1/3 h-[92vh] absolute right-0 top-0 bg-black/50 backdrop-blur-sm '>
-                            <X onClick={() => setOpen(false)} className=' absolute top-2 right-2 cursor-pointer'/>
+                            <X onClick={() => setOpen(!open)} className=' absolute top-2 right-2 cursor-pointer'/>
                             <div className='flex flex-col justify-center items-centerp-4 mt-10'>
                                 <ul className='w-full'>
                                     {listItems.map((item) => (
-                                        <Link key={item.id} href={item.href} className=' flex cursor-pointer bg-gray-600 m-2 rounded gap-5 p-2 text-center hover:bg-gray-100'>{item.icon}{item.name}</Link>
+                                        <Link key={item.id} href={item.href} onClick={() => setOpen(!open)} className=' flex cursor-pointer bg-gray-600 m-2 rounded gap-5 p-2 text-center hover:bg-gray-100'>{item.icon}{item.name}</Link>
                                     ))}
                                 </ul>
                             </div>
