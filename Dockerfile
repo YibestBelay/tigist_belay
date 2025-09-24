@@ -1,24 +1,35 @@
-# 1. Base image
-FROM node:18-alpine
+# 1. Build stage
+FROM node:20-alpine AS builder
 
-# 2. Set working directory
 WORKDIR /app
 
-# 3. Copy package.json + lockfile
-COPY package*.json ./
-
-# 4. Install pnpm and dependencies
+# Install pnpm
 RUN npm install -g pnpm
+
+# Copy package files and install dependencies
+COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
 
-# 5. Copy the rest of the app
+# Copy source code
 COPY . .
 
-# 6. Build Next.js app
+# Build Next.js app
 RUN pnpm run build
 
-# 7. Expose Next.js default port
+# 2. Run stage
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+RUN npm install -g pnpm
+
+# Copy built app and node_modules from builder
+COPY --from=builder /app ./
+
+# Expose dynamic port
 EXPOSE 3000
 
-# 8. Start app
-CMD ["pnpm", "start"]
+# Use Render's dynamic port
+# Start Next.js on dynamic port
+CMD ["sh", "-c", "pnpm start -p ${PORT:-3000}"]
+

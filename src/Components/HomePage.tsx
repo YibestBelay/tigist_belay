@@ -22,7 +22,7 @@ const HomePage = () => {
               
                   > Welcome to my website</h1>
                   <div className='mb-5'>
-                      <div className='w-fit  font-bold rounded-lg p-2 bg-gray-400'>Hello👋 I'm </div> 
+                      <div className='w-fit  font-bold rounded-lg p-2 bg-gray-400'>Hello👋 I am </div> 
                       <div className='text-left font-sans md:text-6xl text-4xl font-bold m-5 text-blue-400'>Tigist Belay</div>
                   </div>
             
