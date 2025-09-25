@@ -7,15 +7,15 @@ import { ThemeToggle } from '../Components/theme-toggle'
 const listItems = [
     
     {id: 1, href: "/Services", name: "Services",icon: <HandPlatter />},
-    {id: 2, href: "/My Work", name: "My Work",icon: <Briefcase />},
+    {id: 2, href: "/My Work", name: "MyWork",icon: <Briefcase />},
     {id: 3, href: "/Contact", name: "Contact",icon:  <Contact />},
 ]
 const NavBar = () => {
     const [open, setOpen] = useState(false)
   return (
-    <div className=' border-b-2 border-gray-200 p-1 h-[7vh]' >
+    <div className=' sticky top-0 bg-gray-500 border-b-1 border-gray-200 p-1 h-[7vh]' >
         <div className='flex justify-between items-center sm:mx-3 md:mx-10 h-full'>
-                <div className='flex-1 flex items-center text-blue-400 font-bold sm:text-lg md:text-xl lg:text-2xl cursor-pointer'>
+                <div className='flex-1 flex items-center text-blue-400 drop-shadow-[0_0_1px_rgba(200,200,2,0.8)] font-bold sm:text-lg md:text-xl lg:text-2xl cursor-pointer'>
                     <Link href="/">Tigist Belay</Link>
                 </div>
 
@@ -34,7 +34,10 @@ const NavBar = () => {
                             <div className='flex flex-col justify-center items-centerp-4 mt-10'>
                                 <ul className='w-full'>
                                     {listItems.map((item) => (
-                                        <Link key={item.id} href={item.href} onClick={() => setOpen(!open)} className=' flex cursor-pointer bg-gray-600 m-2 rounded gap-5 p-2 text-center hover:bg-gray-100'>{item.icon}{item.name}</Link>
+                                        <Link key={item.id} href={item.href} onClick={() => setOpen(!open)} className=' flex justify-center items-center cursor-pointer bg-gray-600  m-2 rounded gap-5 p-2  hover:bg-gray-100'>
+                                            <span className='text-blue-400 overflow-hidden' >{item.icon}</span>
+                                            <span>{item.name}</span>
+                                        </Link>
                                     ))}
                                 </ul>
                             </div>

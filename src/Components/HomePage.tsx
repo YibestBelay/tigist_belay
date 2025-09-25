@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const HomePage = () => {
   return (
-    <div className='flex flex-col md:flex-row  items-center gap-5 h-[calc(100vh-7vh)] overflow-hidden'>
+    <div className='flex flex-col md:flex-row  items-center gap-5 h-[calc(100vh-15vh)] overflow-scroll'>
         
 
         <div className='md:w-1/3 w-full'>
