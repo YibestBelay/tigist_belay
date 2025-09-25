@@ -10,7 +10,7 @@ const Footer = () => {
        
     ]
   return (
-    <div className=' sticky bottom-0 w-full bg-gray-500 border-t-1 border-gray-200 md:px-5 overflow-hidden'>
+    <div className=' absolute bottom-0 w-full bg-gray-500 border-t-1 border-gray-200 md:px-5 overflow-hidden'>
         <div className='flex justify-center items-center h-full w-full'>
             <div className='flex justify-between items-center  p-2 w-full'>
                     <h1 className=' text-xs md:text-base'>Contact Me - <span className=' font-bold'>0901577088</span></h1>
@@ -18,7 +18,7 @@ const Footer = () => {
                     <p className='flex text-cyan-300 text-xs md:text-base'>© 2025 Tigist-Belay.</p>
                     <p className='flex text-cyan-300 text-xs md:text-base'>All rights reserved.</p>
                     </div>
-                    <div className='flex justify-around gap-5 items-center  '>
+                    <div className='flex justify-around gap-2 md:gap-5 items-center  '>
                         {listItems.map((item) => (
                             <Link key={item.id} href={item.link} target="_blank">
                                 <Image src={item.href}  alt={item.name} width={20} height={20} className='rounded-full'/>

@@ -7,7 +7,7 @@ import { ThemeToggle } from '../Components/theme-toggle'
 const listItems = [
     
     {id: 1, href: "/Services", name: "Services",icon: <HandPlatter />},
-    {id: 2, href: "/My Work", name: "MyWork",icon: <Briefcase />},
+    {id: 2, href: "/MyWork", name: "MyWork",icon: <Briefcase />},
     {id: 3, href: "/Contact", name: "Contact",icon:  <Contact />},
 ]
 const NavBar = () => {
